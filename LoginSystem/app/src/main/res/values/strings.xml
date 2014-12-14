@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Login System</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_register">Register</string>
+
+    <string-array name="StrArr">
+        <item>Whats your mother maiden name?</item>
+        <item>Whats the name of your first pet?</item>
+        <item>Where were you born?</item>
+        <item>Who is your favourite celebrity?</item>
+    </string-array>
+
+    <string name="title_activity_recover">Recover</string>
+    <string name="title_activity_login_successful">LoginSuccessful</string>
+    <string name="title_activity_reg_complete">RegComplete</string>
+
+</resources>

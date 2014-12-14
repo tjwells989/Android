@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.tomwells.loginsystem" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        <activity
+            android:name=".Login"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Register"
+            android:label="@string/title_activity_register" >
+        </activity>
+        <activity
+            android:name=".Recover"
+            android:label="@string/title_activity_recover" >
+        </activity>
+        <activity
+            android:name=".LoginSuccessful"
+            android:label="@string/title_activity_login_successful" >
+        </activity>
+        <activity
+            android:name=".RegComplete"
+            android:label="@string/title_activity_reg_complete" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/reg1"
+    tools:context="com.example.tomwells.loginsystem.Register">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditUsername"
+        android:layout_alignParentTop="true"
+        android:hint="Username"
+        android:layout_alignEnd="@+id/EditPassword"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="90dp"
+        android:layout_alignStart="@+id/EditPassword" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditPassword"
+        android:layout_below="@+id/EditUsername"
+        android:layout_marginTop="25dp"
+        android:hint="Password"
+        android:layout_alignEnd="@+id/EditCpassword"
+        android:layout_alignStart="@+id/EditCpassword"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:gravity="center_horizontal"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditCpassword"
+        android:layout_below="@+id/EditPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:hint="Repeat Password"
+        android:gravity="center_horizontal"
+        android:inputType="textPassword"
+        android:textColor="#ff000000" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Register"
+        android:layout_alignParentBottom="true"
+        android:background="#00050602"
+        android:layout_marginBottom="23dp"
+        android:layout_alignStart="@+id/EditAnswer"
+        android:layout_alignEnd="@+id/EditAnswer" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:focusable="false"
+        android:entries="@array/StrArr"
+        android:layout_marginTop="25dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/EditCpassword"
+        android:layout_alignStart="@+id/EditAnswer"
+        android:layout_alignEnd="@+id/EditAnswer" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditAnswer"
+        android:layout_below="@+id/spinner"
+        android:layout_marginTop="25dp"
+        android:hint="Answer"
+        android:layout_alignEnd="@+id/EditCpassword"
+        android:layout_alignStart="@+id/EditCpassword"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/home"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/EditUsername"
+        android:background="#00ffffff" />
+
+</RelativeLayout>

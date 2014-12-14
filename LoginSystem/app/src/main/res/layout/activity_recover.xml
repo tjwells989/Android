@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/recover"
+    tools:context="com.example.tomwells.loginsystem.Recover"
+    android:focusable="true"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Question"
+        android:id="@+id/question"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditAnswer"
+        android:layout_below="@+id/question"
+        android:layout_marginTop="50dp"
+        android:hint="Answer"
+        android:layout_alignStart="@+id/EditPassword"
+        android:layout_alignEnd="@+id/EditPassword"
+        android:layout_centerHorizontal="true"
+        android:focusable="true"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditPassword"
+        android:layout_below="@+id/EditAnswer"
+        android:layout_marginTop="50dp"
+        android:hint="New Password"
+        android:layout_alignEnd="@+id/EditCpassword"
+        android:layout_alignStart="@+id/EditCpassword"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditCpassword"
+        android:layout_below="@+id/EditPassword"
+        android:layout_marginTop="50dp"
+        android:hint="Repeat Password"
+        android:gravity="center_horizontal"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ChangePassword"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/EditCpassword"
+        android:layout_alignParentStart="true"
+        android:height="60dp"
+        android:background="#00ffffff" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/home"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/question"
+        android:layout_marginLeft="79dp"
+        android:layout_alignEnd="@+id/EditAnswer"
+        android:background="#00ffffff" />
+</RelativeLayout>

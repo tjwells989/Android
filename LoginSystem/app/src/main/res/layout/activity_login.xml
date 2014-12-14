@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/background_1"
+    tools:context=".Login">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Login"
+        android:singleLine="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/ForgottenPassword"
+        android:layout_alignEnd="@+id/ForgottenPassword"
+        android:background="#00ffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgotten your password? Click Here"
+        android:id="@+id/ForgottenPassword"
+        android:typeface="serif"
+        android:linksClickable="false"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/Register"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New User? Register now!"
+        android:id="@+id/Register"
+        android:layout_marginBottom="30dp"
+        android:onClick="OnCLKREG"
+        android:layout_above="@+id/Login"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff000000" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editpassword"
+        android:layout_above="@+id/ForgottenPassword"
+        android:layout_marginBottom="32dp"
+        android:layout_alignEnd="@+id/ForgottenPassword"
+        android:layout_alignStart="@+id/ForgottenPassword"
+        android:inputType="textPassword"
+        android:gravity="center_horizontal"
+        android:textColor="#ff000000"
+        android:singleLine="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editusername"
+        android:layout_above="@+id/editpassword"
+        android:layout_marginBottom="80dp"
+        android:layout_alignStart="@+id/editpassword"
+        android:layout_alignEnd="@+id/editpassword"
+        android:gravity="center_horizontal"
+        android:textColor="#ff000000"
+        android:singleLine="true"
+        android:clickable="false" />
+
+</RelativeLayout>

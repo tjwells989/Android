@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
 import android.widget.EditText;
@@ -56,26 +54,25 @@ public class SecondScreen extends Activity {
                 /*The following if statements check that the user has entered something in each
                   field. If they fail to do so, an error message will appear on screen, while
                   all fields that haven't been filled in will have their text changed to red */
-                if(FirstName.equals("")){
+                if (FirstName.equals("")) {
                     First.setHintTextColor(Color.parseColor("#FF0000"));
                     NoError = true;
                 }
-                if(LastName.equals("")){
+                if (LastName.equals("")) {
                     Last.setHintTextColor(Color.parseColor("#FF0000"));
                     NoError = true;
                 }
-                if(Numberstr.equals("")){
+                if (Numberstr.equals("")) {
                     Numb.setHintTextColor(Color.parseColor("#FF0000"));
                     NoError = true;
                 }
-                if(Email.equals("")){
+                if (Email.equals("")) {
                     email.setHintTextColor(Color.parseColor("#FF0000"));
                     NoError = true;
                 }
-                if(NoError){
-                    Toast.makeText(SecondScreen.this,"Please fill all required fields.", Toast.LENGTH_LONG).show();
-                }
-                else {
+                if (NoError) {
+                    Toast.makeText(SecondScreen.this, "Please fill all required fields.", Toast.LENGTH_LONG).show();
+                } else {
                     //Insert the contact into the database.
                     myDb.insertRow(FirstName, LastName, Numberstr, Email);
 
@@ -119,24 +116,5 @@ public class SecondScreen extends Activity {
     private void closeDB() {
         //Closes the database
         myDb.close();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.second_screen, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

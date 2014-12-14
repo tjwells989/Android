@@ -130,7 +130,7 @@ public class MoreInfo extends Activity {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 MyDB.deleteRow(Rowid);
-                                Intent firstscreen = new Intent(getApplicationContext(),FirstScreen.class);
+                                Intent firstscreen = new Intent(getApplicationContext(), FirstScreen.class);
                                 startActivity(firstscreen);
                             }
                         })
@@ -165,8 +165,8 @@ public class MoreInfo extends Activity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent nextscreen = new Intent(getApplicationContext(), home.class);
-               startActivity(nextscreen);
+                Intent nextscreen = new Intent(getApplicationContext(), home.class);
+                startActivity(nextscreen);
             }
         });
 

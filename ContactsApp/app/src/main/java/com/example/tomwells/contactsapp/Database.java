@@ -1,11 +1,11 @@
 package com.example.tomwells.contactsapp;
 
-        import android.content.ContentValues;
-        import android.content.Context;
-        import android.database.Cursor;
-        import android.database.sqlite.SQLiteDatabase;
-        import android.database.sqlite.SQLiteOpenHelper;
-        import android.util.Log;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class Database {
 
@@ -26,7 +26,7 @@ public class Database {
     public static final int COL_EMAIL = 4;
 
 
-    public static final String[] ALL_KEYS = new String[] {KEY_ROWID, KEY_NAME, KEY_LASTNAME, KEY_MOBILENUM, KEY_EMAIL};
+    public static final String[] ALL_KEYS = new String[]{KEY_ROWID, KEY_NAME, KEY_LASTNAME, KEY_MOBILENUM, KEY_EMAIL};
 
     // DB info: it's name, and the table we are using (just one).
     public static final String DATABASE_NAME = "MyDb";
@@ -85,8 +85,8 @@ public class Database {
 
     // Return all data in the database.
     public Cursor getAllRows() {
-        Cursor cursor =    db.rawQuery("SELECT * FROM mainTable ORDER BY name ASC", null);
-       if (cursor.moveToFirst()) {
+        Cursor cursor = db.rawQuery("SELECT * FROM mainTable ORDER BY name ASC", null);
+        if (cursor.moveToFirst()) {
             do {
 
             } while (cursor.moveToNext());
@@ -97,7 +97,7 @@ public class Database {
     // Get a specific row (by rowId)
     public Cursor getRow(long rowId) {
         String where = KEY_ROWID + "=" + rowId;
-        Cursor c = 	db.query(true, DATABASE_TABLE, ALL_KEYS,
+        Cursor c = db.query(true, DATABASE_TABLE, ALL_KEYS,
                 where, null, null, null, null, null);
         if (c != null) {
             c.moveToFirst();
@@ -118,8 +118,7 @@ public class Database {
         return db.update(DATABASE_TABLE, newValues, where, null) != 0;
     }
 
-    private static class DatabaseHelper extends SQLiteOpenHelper
-    {
+    private static class DatabaseHelper extends SQLiteOpenHelper {
         DatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }

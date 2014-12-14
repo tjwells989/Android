@@ -4,8 +4,6 @@ package com.example.tomwells.weatherapp;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.example.tomwells.weatherapp.Location;
-import com.example.tomwells.weatherapp.Weather;
 
 
 public class JSONWeatherParser {

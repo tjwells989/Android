@@ -1,21 +1,12 @@
 package com.example.tomwells.weatherapp;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.format.Time;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import org.json.JSONException;
-
 import java.util.Calendar;
 
 
@@ -24,12 +15,8 @@ public class weathertoday extends Activity {
     private TextView cityText;
     private TextView condDescr;
     private TextView temp;
-    private TextView press;
     private TextView windSpeed;
-    private TextView windDeg;
 
-    private TextView hum;
-    private ImageView imgView;
     RelativeLayout hLayout;
 
     @Override

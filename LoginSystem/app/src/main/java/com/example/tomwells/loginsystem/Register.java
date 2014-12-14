@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,7 +61,7 @@ public class Register extends Activity {
 
                         } while (cursor.moveToNext());
                     }
-                    if(!duplicate){
+                    if (!duplicate) {
                         //If the username hasn't been used, add a new row in the database
                         myDb.insertRow(Username, Password, RecoverQ, RecoveryA);
                         //Create an intent to move to activity RegComplete.class

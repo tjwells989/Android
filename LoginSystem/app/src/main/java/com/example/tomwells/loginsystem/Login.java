@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,63 +20,74 @@ public class Login extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Open the database
         openDB();
 
-         final Button Login = (Button) findViewById(R.id.Login);
-         final EditText username = (EditText) findViewById(R.id.editusername);
-         final EditText password = (EditText) findViewById(R.id.editpassword);
+        //Grab the Button and EditText's from the GUI
+        final Button Login = (Button) findViewById(R.id.Login);
+        final EditText username = (EditText) findViewById(R.id.editusername);
+        final EditText password = (EditText) findViewById(R.id.editpassword);
 
-         Login.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
+        Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-                 String Username;
-                 String Password;
+                String Username;
+                String Password;
 
-                 Username = username.getText().toString();
-                 Password = password.getText().toString();
+                //Set strings equal to the text in EditText fields.
+                Username = username.getText().toString();
+                Password = password.getText().toString();
 
-                  Cursor cursor = myDb.getAllRows();
+                //Cursor to get all rows from the database
+                Cursor cursor = myDb.getAllRows();
 
-                 if (cursor.moveToFirst()) {
-                     do{
+                if (cursor.moveToFirst()) {
+                    do {
                         // Toast.makeText(Login.this, cursor.getString(myDb.COL_USERNAME), Toast.LENGTH_LONG).show();
-                         if(cursor.getString(myDb.COL_USERNAME).equals(Username)) {
-                             if(cursor.getString(myDb.COL_PASSWORD).equals(Password)){
+                        if (cursor.getString(myDb.COL_USERNAME).equals(Username)) {
+                            if (cursor.getString(myDb.COL_PASSWORD).equals(Password)) {
                                 // Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_LONG).show();
-                                 Intent nextScreen = new Intent(getApplicationContext(), LoginSuccessful.class);
-                                 startActivity(nextScreen);
-                             }else {
-                                 Toast.makeText(Login.this, "Incorrect Password", Toast.LENGTH_LONG).show();
-                                 break;
-                             }
-                         }
-                   }
-                 while (cursor.moveToNext());
-                 }
-             }
-         });
+                                Intent nextScreen = new Intent(getApplicationContext(), LoginSuccessful.class);
+                                startActivity(nextScreen);
+                            } else {
+                                Toast.makeText(Login.this, "Incorrect Password", Toast.LENGTH_LONG).show();
+                                break;
+                            }
+                        }
+                    }
+                    while (cursor.moveToNext());
+                }
+            }
+        });
 
         TextView ForgottenPassword = (TextView) findViewById(R.id.ForgottenPassword);
 
         ForgottenPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(username.getText().toString().equals("")){
+                //If the username edittext is empty show this error message
+                if (username.getText().toString().equals("")) {
                     Toast.makeText(Login.this, "Please enter your username", Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
+                    //Make a cursor to get all the rows from the database
                     Cursor cursor = myDb.getAllRows();
+                    //Creating a found boolean
                     boolean found = false;
-                    if(cursor.moveToFirst()){
-                        do{
-                            if(cursor.getString(myDb.COL_USERNAME).equals(username.getText().toString())){
+
+                    if (cursor.moveToFirst()) {
+                        do {
+                            //If the Username exists
+                            if (cursor.getString(myDb.COL_USERNAME).equals(username.getText().toString())) {
+                                //Set found to true
                                 found = true;
 
+                                //get the ID of the row and put it into a bundle
                                 int id = cursor.getInt(myDb.COL_ROWID);
                                 Bundle basket = new Bundle();
                                 basket.putInt("userID", id);
 
+                                //Make an intent to move screens
                                 Intent nextScreen = new Intent(getApplicationContext(), Recover.class);
                                 nextScreen.putExtras(basket);
                                 startActivity(nextScreen);
@@ -86,7 +95,8 @@ public class Login extends Activity {
                         }
                         while (cursor.moveToNext());
                     }
-                    if(!found){
+                    //If username is not found show this error message
+                    if (!found) {
                         Toast.makeText(Login.this, "Username does not exist", Toast.LENGTH_LONG).show();
                     }
 
@@ -108,33 +118,9 @@ public class Login extends Activity {
         });
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.login, menu);
-        return true;
-    }
-
     private void openDB() {
         //Opens the database
         myDb = new Database(this);
         myDb.open();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void OnCLKREG(View v){
-        Toast.makeText(Login.this, "swag", Toast.LENGTH_LONG).show();
     }
 }

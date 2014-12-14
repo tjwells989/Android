@@ -26,7 +26,7 @@ public class Database {
     public static final int COL_RECOVERYANSWER = 4;
 
 
-    public static final String[] ALL_KEYS = new String[] {KEY_ROWID, KEY_USERNAME, KEY_PASSWORD, KEY_RECOVERYQUESTION, KEY_RECOVERYANSWER};
+    public static final String[] ALL_KEYS = new String[]{KEY_ROWID, KEY_USERNAME, KEY_PASSWORD, KEY_RECOVERYQUESTION, KEY_RECOVERYANSWER};
 
     // DB info: it's username, and the table we are using (just one).
     public static final String DATABASE_USERNAME = "MyDb";
@@ -77,42 +77,21 @@ public class Database {
         return db.insert(DATABASE_TABLE, null, initialValues);
     }
 
-    // Delete a row from the database, by rowId (primary key)
-    public boolean deleteRow(long rowId) {
-        String where = KEY_ROWID + "=" + rowId;
-        return db.delete(DATABASE_TABLE, where, null) != 0;
-    }
-
-    public void deleteAll() {
-        Cursor c = getAllRows();
-        long rowId = c.getColumnIndexOrThrow(KEY_ROWID);
-        if (c.moveToFirst()) {
-            do {
-                deleteRow(c.getLong((int) rowId));
-            } while (c.moveToNext());
-        }
-        c.close();
-    }
-
     // Return all data in the database.
     public Cursor getAllRows() {
-        //Cursor c =    db.rawQuery("SELECT * FROM DATABASE_TABLE ORDER BY username ASC", null);
-        Cursor  cursor = db.rawQuery("select * from mainTable",null);
-       if (cursor.moveToFirst()) {
+        Cursor cursor = db.rawQuery("select * from mainTable", null);
+        if (cursor.moveToFirst()) {
             do {
                 //If the username is equal to the username in the database
-
-
-
             } while (cursor.moveToNext());
         }
-         return cursor;
+        return cursor;
     }
 
     // Get a specific row (by rowId)
     public Cursor getRow(long rowId) {
         String where = KEY_ROWID + "=" + rowId;
-        Cursor c =  db.query(true, DATABASE_TABLE, ALL_KEYS,
+        Cursor c = db.query(true, DATABASE_TABLE, ALL_KEYS,
                 where, null, null, null, null, null);
         if (c != null) {
             c.moveToFirst();
@@ -121,7 +100,7 @@ public class Database {
     }
 
     // Change an existing row to be equal to new data.
-    public boolean updatePassword(long rowId,String password) {
+    public boolean updatePassword(long rowId, String password) {
         String where = KEY_ROWID + "=" + rowId;
         ContentValues newValues = new ContentValues();
         newValues.put(KEY_PASSWORD, password);
@@ -129,8 +108,7 @@ public class Database {
         return db.update(DATABASE_TABLE, newValues, where, null) != 0;
     }
 
-    private static class DatabaseHelper extends SQLiteOpenHelper
-    {
+    private static class DatabaseHelper extends SQLiteOpenHelper {
         DatabaseHelper(Context context) {
             super(context, DATABASE_USERNAME, null, DATABASE_VERSION);
         }

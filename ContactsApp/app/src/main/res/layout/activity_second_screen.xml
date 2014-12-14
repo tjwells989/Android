@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.tomwells.contactsapp.SecondScreen"
+    android:background="@drawable/add">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/FirstName"
+        android:width="300dp"
+        android:hint="First Name"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="180dp"
+        android:background="#308cffff"
+        android:height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        android:inputType="textCapSentences"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/LastName"
+        android:layout_below="@+id/FirstName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
+        android:width="300dp"
+        android:hint="Last Name"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="#308cffff"
+        android:height="30dp"
+        android:singleLine="true"
+        android:inputType="textCapSentences"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/MobileNum"
+        android:width="300dp"
+        android:layout_below="@+id/LastName"
+        android:layout_alignStart="@+id/LastName"
+        android:layout_marginTop="39dp"
+        android:hint="Mobile Number"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="#308cffff"
+        android:height="30dp"
+        android:singleLine="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Email"
+        android:layout_below="@+id/MobileNum"
+        android:layout_alignEnd="@+id/MobileNum"
+        android:layout_marginTop="45dp"
+        android:width="300dp"
+        android:hint="Email"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="#308cffff"
+        android:height="30dp"
+        android:singleLine="true"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="-15dp"
+        android:width="260dp"
+        android:layout_marginLeft="5dp"
+        android:background="#00000000" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/home"
+        android:layout_toEndOf="@+id/add"
+        android:layout_alignTop="@+id/add"
+        android:layout_marginBottom="-15dp"
+        android:width="100dp"
+        android:background="#00ffffff" />
+
+</RelativeLayout>
